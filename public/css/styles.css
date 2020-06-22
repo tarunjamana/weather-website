@@ -86,14 +86,14 @@ button{
 }
 
 #temp{
-  font-size: 48px;
+  font-size: 36px;
   font-weight: bold;
   font-family: 'Courier New', Courier, monospace;
   color: #888;
   
   position: relative;
-  left:90px;
-  top:-40px;
+  left:40px;
+  top:-30px;
 }
 
 
@@ -103,7 +103,7 @@ button{
   font-family: 'Courier New', Courier, monospace;
   color: #888;
   position: relative;
-  bottom: 50px;
+  bottom: 30px;
 }
 
 #humidity{
@@ -112,5 +112,5 @@ button{
   font-family: 'Courier New', Courier, monospace;
   color: #888;
   position: relative;
-  bottom: 40px;
+  bottom: 20px;
 }
