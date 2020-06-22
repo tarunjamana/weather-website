@@ -35,13 +35,14 @@ weatherForm.addEventListener('submit' , (e) =>{
            error.textContent = "please enter a correct location"
          } else{
            console.log(data)
-           card.style.display="block"
+           card.style.display="flex"
            loading = false
            loader.style.display = "none"
            wImage.src = `${data.body.weather_icons[0]}`
-           temp.textContent = data.body.temperature
-           description.textContent = data.body.weather_descriptions[0];
-           humidity.textContent = data.body.humidity
+           temp.innerHTML = `${data.body.temperature}<span>&#8451;</span>`
+           description.textContent = `forecast : ${data.body.weather_descriptions[0]}`;
+           humidity.textContent = `humidity : ${data.body.humidity}`
+           area.textContent = data.location
          }
          
       })

@@ -72,6 +72,45 @@ button{
   width: 300px;
   height: 300px;
   padding: 16px ;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin: 16px 0;
-  border: 1px solid #333;
+  box-shadow: 0 8px 6px -6px #eee;
+  background: linear-gradient(#a1c4fd,#c2e9fb);
+}
+
+#weather-image{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+#temp{
+  font-size: 48px;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  color: #888;
+  
+  position: relative;
+  left:90px;
+  top:-40px;
+}
+
+
+#description{
+  font-size: 18px;
+  font-weight: 400;
+  font-family: 'Courier New', Courier, monospace;
+  color: #888;
+  position: relative;
+  bottom: 50px;
+}
+
+#humidity{
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+  color: #888;
+  position: relative;
+  bottom: 40px;
 }
