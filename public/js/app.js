@@ -32,6 +32,7 @@ weatherForm.addEventListener('submit' , (e) =>{
        response.json().then((data) => {
          if(data.error){
            console.log(data.error)
+           loader.style.display = "none"
            error.textContent = "please enter a correct location"
          } else{
            console.log(data)
