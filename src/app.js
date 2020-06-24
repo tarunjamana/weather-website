@@ -44,6 +44,13 @@ app.get('/help' , (req,res) =>{
   })
 })
 
+app.get('/forecast',(req,res) =>{
+  res.render('forecast' ,{
+    content:'this is the forecast page',
+    title:'forecast',
+    name:'tarun'
+  })
+})
 
 app.use(express.static(path.join(__dirname,'../public/')))
 
