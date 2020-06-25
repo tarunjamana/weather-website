@@ -43,7 +43,7 @@ weatherForm.addEventListener('submit' , (e) =>{
          
         response.json().then((data) =>{
           if(data.error){
-            console.log(data.error)
+            
             loader.style.display = "none"
             error.textContent = data.error
           }else{
@@ -65,7 +65,7 @@ weatherForm.addEventListener('submit' , (e) =>{
                 image   
               })
             })
-            console.log(dataArray)
+            
             dataArray.forEach((item,i) =>{
               if(i<5){
                 const innerHtml = htmlContent(item);

@@ -5,7 +5,6 @@ const input = document.querySelector('input')
 
 
 const card = document.querySelector('.card')
-console.log(card);
 const wImage = document.getElementById('weather-image')
 const temp = document.getElementById('temp')
 const description = document.getElementById('description')
@@ -35,7 +34,7 @@ weatherForm.addEventListener('submit' , (e) =>{
            loader.style.display = "none"
            error.textContent = "please enter a correct location"
          } else{
-           console.log(data)
+           
            card.style.display="flex"
            loading = false
            loader.style.display = "none"

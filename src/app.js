@@ -89,19 +89,7 @@ app.use(express.static(path.join(__dirname,'../public/')))
 
 app.use(express.static(path.join(__dirname,'../public/')))
 
-// app.get('/help' ,(req,res) =>{
-//   res.send([{
-//     name:'tarun',
-//     age:25
-//   },{
-//     name:'isha',
-//     age:26
-//   }])
-// })
 
-// app.get('/about' , (req,res) =>{
-//   res.send('<h1>about the weather App</h1>')
-// } )
 
 
 app.get('/weather',(req,res) =>{
@@ -124,7 +112,7 @@ app.get('/weather',(req,res) =>{
              error
             })
           }
-         console.log(body);
+         
           res.send({
             forecast:forecastData,
             location,
@@ -137,16 +125,7 @@ app.get('/weather',(req,res) =>{
  
 })
 
-app.get('/products' ,(req,res) =>{
-  if(!req.query.search){
-  return   res.send({
-      error:'provide a search term '
-    })
-  }
-  res.send({
-    products:[]
-  })
-})
+
 
 app.get('/help/*' ,(req,res) =>{
   res.render('404' , {
