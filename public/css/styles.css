@@ -166,16 +166,20 @@ button{
 @media only screen and (max-width: 600px) {
   
   body{
-    margin: 12px;
+    margin: 10px;
   }
 
   #data{
     width: 300px;
-    padding: 16px;
+    padding: 12px;
   }
  
   .forecast{
     margin:5px;
+  }
+
+  .forecast p {
+    font-size: 12px;
   }
 
 }
