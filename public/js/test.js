@@ -1,17 +1,19 @@
-let utcArray = [1593021600,1593108000,1593194400,1593280800,1593367200]
-let dateArray = []
-let dayList = []
-const utcToDate = (utcArray) =>{
- 
-  utcArray.forEach( (element)=> {
-      const date = new Date(element*1000)
-      dateArray.push(date.getUTCDay());
-  });
+const databox = document.getElementById("data")
+const weatherForm = document.querySelector('form')
+const input = document.querySelector('input')
+const loader = document.getElementById('loader')
+const error = document.getElementById('error')
+const address = document.getElementById('area')
 
+const htmlContent = (item) =>{
+  return `
+    <div class="forecast">
+    <p>${item.day}</p>
+    <img class="icon" src="http://openweathermap.org/img/wn/${item.image}.png">
+    <p>${item.temperature}<span>&#176C</span></p>
+    </div>
+  `
 }
-
-utcToDate(utcArray);
-console.log(dateArray);
 
 var weekday = new Array(7);
   weekday[0] = "Sun";
@@ -22,31 +24,62 @@ var weekday = new Array(7);
   weekday[5] = "Fri";
   weekday[6] = "Sat";
 
-
-const day = (dateArray) =>{
-  dateArray.forEach((item) =>{
-    const n = weekday[item];
-    dayList.push(n);
-  })
-}
+  let loading = false
 
 
-day(dateArray);
-console.log(dayList);
+weatherForm.addEventListener('submit' , (e) =>{
+  e.preventDefault()
+  error.textContent = ""
+  if(loading ===false){
+    loader.style.display = "block"
+  }
+  address.textContent=''
+  databox.innerHTML=''
+  databox.style.display="none"
+  const dataArray = []
+  const location = input.value
+  fetch(`/weekWeather?address=${location}`)
+       .then((response) =>{
+         
+        response.json().then((data) =>{
+          if(data.error){
+            console.log(data.error)
+            loader.style.display = "none"
+            error.textContent = data.error
+          }else{
 
-const htmlContent = (item) =>{
-  return `
-    <div class="forecast">
-    <p>${item}</p>
-    <img src="/images/sun.png" alt="sun">
-    <p>23<span>&#176F</span></p>
-    </div>
-  `
-}
+            databox.style.display="flex"
+            loading = false
+            loader.style.display ="none"
+            address.textContent = data.location
+            data.body.forEach((item) =>{
+              let date = new Date(item.dt * 1000)
+              let day = weekday[date.getUTCDay()]
+              let temperature =  item.temp.day -273.15;
+              
+              let image = item.weather[0].icon
+              
+              dataArray.push({
+                day,
+                temperature:temperature.toFixed(1),
+                image   
+              })
+            })
+            console.log(dataArray)
+            dataArray.forEach((item,i) =>{
+              if(i<5){
+                const innerHtml = htmlContent(item);
+                databox.innerHTML = databox.innerHTML + innerHtml
+              }
+            })
+             
+             
 
-const databox = document.getElementById("data");
-
-dayList.forEach((item) =>{
-  const innerHtml = htmlContent(item);
-  databox.innerHTML = databox.innerHTML + innerHtml
+          }
+        })
+       }
+        
+         
+       )
 })
+

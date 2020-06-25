@@ -3,7 +3,7 @@ const express = require('express')
 const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
-
+const weeklyForecast = require('./utils/weeklyForecast')
 const app = express()
 const port = process.env.PORT || 3000
 
@@ -44,12 +44,45 @@ app.get('/help' , (req,res) =>{
   })
 })
 
-app.get('/forecast',(req,res) =>{
-  res.render('forecast' ,{
-    content:'this is the forecast page',
+app.get('/forecast' ,(req,res) =>{
+  res.render('forecast' , {
+    content:'this is the forecast Page',
     title:'forecast',
-    name:'tarun'
+    name:'tarun '
   })
+ 
+})
+
+app.get('/weekWeather',(req,res) =>{
+ 
+  const address = req.query.address
+  if(!address){
+    return res.send({
+      error:'provide an address'
+    })
+  }else {
+    geocode(address , (error ,{latitude,longitude,location} = {}) =>{
+      console.log('triggered');
+      if(error){
+        return res.send({
+          error
+        })
+      }
+      weeklyForecast(latitude,longitude,(error,body) =>{
+        if(error){
+          return res.send({
+            error
+          })
+        }
+        
+        res.send({
+          address:address,
+          body:body,
+          location
+        })
+      })
+    })
+  }
 })
 
 app.use(express.static(path.join(__dirname,'../public/')))
@@ -72,6 +105,7 @@ app.use(express.static(path.join(__dirname,'../public/')))
 
 
 app.get('/weather',(req,res) =>{
+  
   const address = req.query.address
   if(!address){
     return res.send({
@@ -87,8 +121,7 @@ app.get('/weather',(req,res) =>{
         forecast(latitude,longitude,(error,forecastData,body)=>{
           if(error){
            return res.send({
-             
-              error
+             error
             })
           }
          console.log(body);
