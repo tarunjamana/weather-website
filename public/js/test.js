@@ -1,6 +1,6 @@
 const databox = document.getElementById("data")
 const weatherForm = document.querySelector('form')
-const input = document.querySelector('input')
+const input = document.getElementById('inputbox')
 const loader = document.getElementById('loader')
 const error = document.getElementById('error')
 const address = document.getElementById('area')
@@ -38,6 +38,7 @@ weatherForm.addEventListener('submit' , (e) =>{
   databox.style.display="none"
   const dataArray = []
   const location = input.value
+
   fetch(`/weekWeather?address=${location}`)
        .then((response) =>{
          
@@ -47,10 +48,11 @@ weatherForm.addEventListener('submit' , (e) =>{
             loader.style.display = "none"
             error.textContent = data.error
           }else{
-
+           
             databox.style.display="flex"
             loading = false
             loader.style.display ="none"
+            
             address.textContent = data.location
             data.body.forEach((item) =>{
               let date = new Date(item.dt * 1000)
@@ -89,6 +91,7 @@ const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"
 const currentTheme = localStorage.getItem('theme');
 
 if (currentTheme) {
+   
     document.documentElement.setAttribute('data-theme', currentTheme);
   
     if (currentTheme === 'dark') {
