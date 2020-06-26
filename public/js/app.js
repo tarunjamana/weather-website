@@ -1,6 +1,6 @@
 console.log('client side js is loaded');
 const weatherForm = document.querySelector('form')
-const input = document.querySelector('input')
+const input = document.getElementById('weather-input')
 
 
 

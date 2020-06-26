@@ -2,6 +2,7 @@
   --font-color: #424242;
   --bg-color: #fff;
   --border-top: #222;
+  --shadow:#eee;
 }
 
 
@@ -9,6 +10,7 @@
   --font-color: #e1e1ff;
   --bg-color: #161625;
    --border-top:#eee;
+   --shadow:none
 }
 
 
@@ -93,7 +95,7 @@ button{
   flex-direction: column;
   
   margin: 16px 0;
-  box-shadow: 0 8px 6px -6px #eee;
+  box-shadow: 0 8px 6px -6px var(--shadow);
   background: linear-gradient(#a1c4fd,#c2e9fb);
 }
 
@@ -132,6 +134,10 @@ button{
   position: relative;
   height: 50px;
   width: 100%;
+}
+
+#location{
+  color: #444;
 }
 
 .data-content{
