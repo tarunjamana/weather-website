@@ -144,15 +144,7 @@ app.get('*' ,(req,res) =>{
   })
 })
 
-// app.get('/loader', (req, res) => {
 
-  
-//   fs.readFile( '../public/js/loader.json', 'utf8', function (err, data) {
-//       res.send(data);
-//       res.end( data );
-//   });
-
-// });
 
 
 app.listen(port,() =>{
