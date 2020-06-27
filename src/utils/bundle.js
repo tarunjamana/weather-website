@@ -14355,13 +14355,17 @@ GroupEffect.prototype.init = function(data,element,dynamicProperties){
 },{}],2:[function(require,module,exports){
 const bodymovin = require('bodymovin')
 
-var animation = bodymovin.loadAnimation({
-  container: document.getElementById('loader'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: './loader.json'
-})
+
+
+
+
+  var animation = bodymovin.loadAnimation({
+    container: document.getElementById('loader'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: '/loader.json'
+  })
 
 
 },{"bodymovin":1}]},{},[2]);

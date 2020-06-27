@@ -85,7 +85,8 @@ button{
  position: relative;
  left: 24px;
  top:40px;
- 
+ width: 250px;
+ height: 250px;
 }
 
 .card{
