@@ -53,6 +53,14 @@ app.get('/forecast' ,(req,res) =>{
  
 })
 
+app.get('/legend' ,(req,res) =>{
+  res.render('legend' ,{
+    content:'this is the Legend Page',
+    title:'Legend',
+    name:'tarun '
+  })
+})
+
 app.get('/weekWeather',(req,res) =>{
  
   const address = req.query.address
