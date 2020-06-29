@@ -23,6 +23,7 @@ body{
   font-family: Arial;
   max-width: 650px;
   margin: 0 auto;
+  
   padding: 0 16px;
   display: flex;
   flex-direction: column;
@@ -344,3 +345,4 @@ th {
 td{
   display: table-cell;
 }
+

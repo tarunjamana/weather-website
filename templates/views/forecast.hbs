@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/images/weather.png">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/modal.css">
+ 
   <title>Weather</title>
 </head>
 <body>
@@ -28,8 +30,22 @@
   <div id="data">
   
   </div>
-  <p id="area"></p>
+  
+   <p id="area"></p>
+   <button class="modal-btn" id="myBtn">Open Legend Modal</button>
+  
+   
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+      {{>icon}}
   </div>
+
+</div> 
+</div>
+
  {{>footer}}
  
   <script src="/js/test.js"></script>
@@ -37,7 +53,7 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.10/lottie.js"></script>
   <script src="/js/loader.js"></script>
- 
+ <script src="/js/modal.js"></script>
   <script src="/js/darkmode.js"></script>
 </body>
 </html>

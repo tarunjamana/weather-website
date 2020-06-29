@@ -4,7 +4,6 @@ const input = document.getElementById('inputbox')
 const loader = document.getElementById('loader')
 const error = document.getElementById('error')
 const address = document.getElementById('area')
-
 const htmlContent = (item) =>{
   return `
     <div class="forecast">
@@ -38,7 +37,6 @@ weatherForm.addEventListener('submit' , (e) =>{
   databox.style.display="none"
   const dataArray = []
   const location = input.value
-
   fetch(`/weekWeather?address=${location}`)
        .then((response) =>{
          
@@ -54,6 +52,7 @@ weatherForm.addEventListener('submit' , (e) =>{
             loader.style.display ="none"
             
             address.textContent = data.location
+            btn.style.display="block"
             data.body.forEach((item) =>{
               let date = new Date(item.dt * 1000)
               let day = weekday[date.getUTCDay()]
