@@ -55,3 +55,11 @@
 .modal-btn:focus{
   cursor: pointer;
 }
+
+
+
+@media only screen and (max-width:600px){
+  .modal-content{
+    width: 70%;
+  }
+}
